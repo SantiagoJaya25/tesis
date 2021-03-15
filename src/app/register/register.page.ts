@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-register',
@@ -7,14 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterPage implements OnInit {
 
-  constructor() { }
+  constructor( private authService: AuthService) { }
 
   ngOnInit() {
   }
 
-  onRegister(email, password){
-    console.log('Email', email);
-    console.log('Pass', password);
+  async onRegister(email, password){
+  try{
+    const user = await  this.authService.register(email.value, password.value );
+    if (user){
+      // CECHEAQR EMAIL
+      console.log( 'User -->', user);
+    }
+  }
+  catch (error) {
+    console.log('Error', error);
+  }
 
   }
 }

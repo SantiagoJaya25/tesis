@@ -12,7 +12,6 @@ import 'firebase/firestore';
 
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -35,7 +34,6 @@ export class AuthService {
       console.log('Error-->', error);
     }
   }
-  // @ts-ignore
   async loginGoogle(): Promise<User>{
     try{
       const { user } = await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
@@ -54,7 +52,6 @@ export class AuthService {
     catch (error) {console.log('Error-->', error);
     }
   }
-  // @ts-ignore
   async login(email: string, password: string): Promise<User>{
     try{
       const { user } = await this.afAuth.signInWithEmailAndPassword(email, password);
