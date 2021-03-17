@@ -17,7 +17,7 @@ import 'firebase/firestore';
 })
 export class AuthService {
   public user$: Observable<User>;
-  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {
+  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) {
     this.user$ = this.afAuth.authState.pipe(
     switchMap ((user) => {
       if (user){
@@ -67,6 +67,9 @@ export class AuthService {
     catch (error) {console.log('Error-->', error);
 
     }
+  }
+  isEmailVerified(user: User): boolean{
+   return user.emailVerified === true ? true : false;
   }
   async logout(): Promise<void> {
     try {

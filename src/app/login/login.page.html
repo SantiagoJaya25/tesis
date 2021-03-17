@@ -16,12 +16,38 @@
     </ion-item>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" (click)="onLogin(email, password)">
-          REGISTRAR
+        <ion-button class="center-span" type="submit" (click)="onLogin(email, password)">
+          ENTRAR
         </ion-button>
       </ion-col>
 
     </ion-row>
+    <ion-row>
+      <ion-col>
 
+        <p class="ion-text-end">
+          <a href="/forgot-password"> FORGOT PASSWORD?</a>
+        </p>
+      </ion-col>
+
+    </ion-row>
+    <span class="center-span"> or </span>
+<ion-row>
+  <ion-col>
+    <ion-button class="center-span"  type="submit" color="danger" (click)="onLoginGoogle(email, password)"
+    exapand="block">
+Login with GOOGLE
+    </ion-button>
+  </ion-col>
+
+</ion-row>
   </form>
+  <ion-row>
+    <ion-col>
+    <p class="ion-text-end">
+      <a href="/register"> CREATE NEW ACCOUNT!!</a>
+    </p>
+    </ion-col>
+
+  </ion-row>
 </ion-content>

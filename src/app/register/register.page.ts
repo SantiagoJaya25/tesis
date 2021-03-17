@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../services/auth.service";
+import {AuthService} from '../services/auth.service';
+import {emailVerified} from '@angular/fire/auth-guard';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,6 @@ export class RegisterPage implements OnInit {
   try{
     const user = await  this.authService.register(email.value, password.value );
     if (user){
-      // CECHEAQR EMAIL
       console.log( 'User -->', user);
     }
   }
